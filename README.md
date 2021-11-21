@@ -26,7 +26,7 @@ The API has the following features:
     the default language is English
 
 # Request and Response
-The API has two methods:
+The API has two methods:  
 **welcome** (defaulted to the root url) 
   - Desc: render an internationalized welcoming message
   - URL: {domain}/ztar-shipping
