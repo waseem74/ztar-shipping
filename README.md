@@ -18,3 +18,9 @@ using the following mvn command:
 **mvn clean install**
 Then you can grap the war file generated in the target folder and deploy it directly to your tomcat server instance.
 
+# Features to be highlighted
+The API has the following features:
+- Logging is enabled, log files are generated in the root logs folder
+- Customized validation messages based on shipment carrier Id chosed
+- I18n is supported for english and spanish languages, locale is automatically detected from the user client tool, 
+    the default language is English
