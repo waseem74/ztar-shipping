@@ -29,7 +29,7 @@ The API has the following features:
 The API has two methods:  
 **welcome** (defaulted to the root url) 
   - Desc: render an internationalized welcoming message
-  - URL: {domain}/ztar-shipping
+  - URL: **{domain}/ztar-shipping**
   - HTTP Method: GET
   - Response Type: JSON
   - Sample Response:
@@ -38,7 +38,7 @@ The API has two methods:
   
 **createShipment** 
   - Desc: responsible for placing the shipment order and rendering a suitable status messages
-  - URL: {domain}/ztar-shipping/create-shipment  
+  - URL: **{domain}/ztar-shipping/create-shipment ** 
   - HTTP Method: POST
   - Request Type: JSON
   - Response Type: JSON
