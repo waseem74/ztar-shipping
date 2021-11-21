@@ -28,18 +28,18 @@ The API has the following features:
 # Request and Response
 The API has two methods:
 **welcome** (defaulted to the root url) 
-  Desc: render an internationalized welcoming message
-  URL: {domain}/ztar-shipping
-  HTTP Method: GET
-  Response Type: JSON
-  Sample Response:
+  - Desc: render an internationalized welcoming message
+  - URL: {domain}/ztar-shipping
+  - HTTP Method: GET
+  - Response Type: JSON
+  - Sample Response:
     { "message": "Welcome to ZTAR Shipping", "status": 200 }
   
   
 **createShipment** 
-  Desc: responsible for placing the shipment order and rendering a suitable status messages
-  URL: {domain}/ztar-shipping/create-shipment  
-  HTTP Method: POST
-  Request Type: JSON
-  Response Type: JSON
+  - Desc: responsible for placing the shipment order and rendering a suitable status messages
+  - URL: {domain}/ztar-shipping/create-shipment  
+  - HTTP Method: POST
+  - Request Type: JSON
+  - Response Type: JSON
   
