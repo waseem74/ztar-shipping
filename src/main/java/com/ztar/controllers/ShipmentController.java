@@ -1,6 +1,7 @@
 package com.ztar.controllers;
 
 import java.util.HashMap;
+
 import java.util.Locale;
 import java.util.Map;
 
@@ -30,7 +31,8 @@ import com.ztar.model.services.ShipmentService;
  * @author Waseem Zawaideh
  */
 @RestController
-@RequestMapping("/ztar-shipping")
+@RequestMapping(value = "/ztar-shipping",
+	produces = MediaType.APPLICATION_JSON_VALUE )
 public class ShipmentController {
 
 	private final Logger logger = LoggerFactory.getLogger(this.getClass());
@@ -48,7 +50,7 @@ public class ShipmentController {
 	 * 
 	 * @return
 	 */
-	@GetMapping(produces = MediaType.APPLICATION_JSON_VALUE)
+	@GetMapping
 	public ResponseEntity<Object> welcome() {
 		String welcomeMsg = Translator.toLocale("ztar.greeting", null);
 		logger.info("Welcome message: " + welcomeMsg);
@@ -61,7 +63,7 @@ public class ShipmentController {
 	 * @param shipment
 	 * @return
 	 */
-	@PostMapping(value = "create-shipment", produces = MediaType.APPLICATION_JSON_VALUE)
+	@PostMapping(value = "create-shipment", consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Object> createShipment(@Valid @RequestBody ShipmentDTO shipment) {
 
 		logger.info("Initial validation passed");
