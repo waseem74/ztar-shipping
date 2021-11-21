@@ -11,3 +11,10 @@ The API was build using spring boot platform with the following maven dependenci
 -  spring-boot-devtools
 -  jackson-dataformat-xml
 -  commons-lang3
+
+# Running the application
+You can either run the application directly by running the ZtarShippingApplication class, or you can generate a war file
+using the following mvn command: 
+**mvn clean install**
+Then you can grap the war file generated in the target folder and deploy it directly to your tomcat server instance.
+
