@@ -25,6 +25,11 @@ The API has the following features:
 - I18n is supported for english and spanish languages, locale is automatically detected from the user client tool, 
     the default language is English
 
+# Security
+The API security applied is basic authentication, it works by prompting the user for a username and password.
+username: ztar
+password: pass123
+
 # Request and Response
 The API has two methods:  
 **welcome** (defaulted to the root url) 
