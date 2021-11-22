@@ -74,8 +74,8 @@ public class FedexShipment implements Shipment {
 		
 		XmlMapper xmlMapper = new XmlMapper();
 		try {
-			xmlMapper.writeValue(new File("orders", "fedx_shipment_order_" + orderId + ".xml"), shipment);
-
+			xmlMapper.writeValue(new File("orders", shipment.getCarrier().getCarrierId() + "_shipment_order_" + orderId + ".xml"), shipment);
+			
 		} catch (IOException e) {
 			throw new ShipmentException(e.toString());
 		}
