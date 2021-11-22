@@ -30,7 +30,7 @@ The security method applied is basic authentication, it works by prompting the u
 username: **ztar**
 password: **pass123**
 
-# Request and Response
+# API methods:
 The API has two methods:  
 **welcome** (defaulted to the root url) 
   - Desc: render an internationalized welcoming message
@@ -47,4 +47,92 @@ The API has two methods:
   - HTTP Method: POST
   - Request Type: JSON
   - Response Type: JSON
+ 
+ # Sample Request and Responses 
+ 
+ **Success**
+ ------------
   
+  **Sample request:**
+  
+    {
+        "shipmentPackage": {
+          "height": {"value": 10, "measurementUnit":"cm" },
+          "width":  {"value": 10, "measurementUnit":"cm" },
+          "length": {"value": 20, "measurementUnit":"cm" },
+          "weight": {"value": 1000, "measurementUnit":"gram" }
+        },
+        "carrier": {
+          "carrierId": "fedex",
+          "carrierServiceId": "fedexAIR",
+          "shipmentServiceId": "UPS2DAY" *****
+        }
+    }
+
+  - All fields and values are mandatory except for carrierServiceId and shipmentServiceId (only one is required based on carrier id selected)
+  - carrierId (case sensitive): ["fedex", "ups"] 
+  - carrierServiceId is mandatory for fedex (case sensitive): ["fedexAIR", "fedexGroud"]
+  - shipmentServiceId is mandatory for ups (case sensitive): ["UPSExpress","UPS2DAY"]
+  - measurementUnit for lenght (case insensitive): ["inch", "cm"] 
+  - measurementUnit for weight (case insensitive): ["pound", "gram"] 
+  - measurementUnit acceptable for fedex are ["cm","gram"]
+  - measurementUnit acceptable for fedex are ["inch","pound"]
+
+  **Sample Response**
+     {
+        "shipment-order": {
+            "orderId": "JlsobZ",
+            "orderDate": "November 22, 2021 9:25 EET",
+            "shipmentPackage": {
+                "height": {
+                    "value": 10.0,
+                    "measurementUnit": "cm"
+                },
+                "width": {
+                    "value": 10.0,
+                    "measurementUnit": "cm"
+                },
+                "length": {
+                    "value": 20.0,
+                    "measurementUnit": "cm"
+                },
+                "weight": {
+                    "value": 1000.0,
+                    "measurementUnit": "gram"
+                }
+            },
+            "carrier": {
+                "carrierId": "fedex",
+                "carrierServiceId": "fedexAIR"
+            }
+        },
+        "message": "Shipment has been placed successfully",
+        "status": 200
+     }
+     
+     -  "orderId": Order id unique value (generated value if request is successful)
+     -  "orderDate": The date of shipping order request (current date generated if request is successful)
+     -  "message": Response proper message
+     -  "status": Http status value (200 for success)
+            
+ **Failure**             
+ -----------
+ 
+ - Business validation error response (Custom messages based on user locale ["es","en"])
+ 
+      {
+        "message": "'length' measurement unit should be cm",
+        "status": 400
+      }
+  
+     -  "message": Response proper message
+     -  "status": Http status value (400 for failure)
+ - Mandatory fields error response 
+     {
+        "message": "{shipmentPackage.length=must not be null, shipmentPackage.weight=must not be null}",
+        "status": 400
+     }
+
+     -  "message": Response proper message
+     -  "status": Http status value (400 for failure)
+     
