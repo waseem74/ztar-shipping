@@ -79,33 +79,41 @@ The API has two methods:
   - measurementUnit acceptable for fedex are ["inch","pound"]
 
   **Sample Response**
-     {
+  
+     { 
         "shipment-order": {
+        
             "orderId": "JlsobZ",
             "orderDate": "November 22, 2021 9:25 EET",
+        
             "shipmentPackage": {
                 "height": {
                     "value": 10.0,
                     "measurementUnit": "cm"
                 },
+                
                 "width": {
                     "value": 10.0,
                     "measurementUnit": "cm"
                 },
+                
                 "length": {
                     "value": 20.0,
                     "measurementUnit": "cm"
                 },
+                
                 "weight": {
                     "value": 1000.0,
                     "measurementUnit": "gram"
                 }
             },
+            
             "carrier": {
                 "carrierId": "fedex",
                 "carrierServiceId": "fedexAIR"
             }
         },
+        
         "message": "Shipment has been placed successfully",
         "status": 200
      }
@@ -118,7 +126,7 @@ The API has two methods:
  **Failure**             
  -----------
  
- - Business validation error response (Custom messages based on user locale ["es","en"])
+ - Business validation error response (Custom messages based on user locale ["es","en"])  
  
       {
         "message": "'length' measurement unit should be cm",
@@ -127,7 +135,8 @@ The API has two methods:
   
      -  "message": Response proper message
      -  "status": Http status value (400 for failure)
- - Mandatory fields error response 
+     
+ - Mandatory fields error response   
      {
         "message": "{shipmentPackage.length=must not be null, shipmentPackage.weight=must not be null}",
         "status": 400
