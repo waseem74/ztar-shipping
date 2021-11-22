@@ -26,9 +26,9 @@ The API has the following features:
     the default language is English
 
 # Security
-The security method applied is basic authentication, it works by prompting the user for a username and password.
-username: **ztar**
-password: **pass123**
+The security method applied is basic authentication, it works by prompting the user for a username and password.  
+username: **ztar**  
+password: **pass123**  
 
 # API methods:
 The API has two methods:  
@@ -53,7 +53,7 @@ The API has two methods:
  **Success**
  ------------
   
-  **Sample request:**
+  **Fedex sample request:**
   
     {
         "shipmentPackage": {
@@ -64,11 +64,25 @@ The API has two methods:
         },
         "carrier": {
           "carrierId": "fedex",
-          "carrierServiceId": "fedexAIR",
-          "shipmentServiceId": "UPS2DAY" *
+          "carrierServiceId": "fedexAIR"
         }
     }
 
+  **UPS sample request:**
+    {
+        "shipmentPackage": {
+          "height": {"value": 10, "measurementUnit":"inch" },
+          "width":  {"value": 10, "measurementUnit":"inch" },
+          "length": {"value": 20, "measurementUnit":"inch" },
+          "weight": {"value": 1000, "measurementUnit":"pound" }
+        },
+        "carrier": {
+          "carrierId": "ups",
+          "shipmentServiceId": "UPS2DAY"
+        }
+    }
+  
+  
   - All fields and values are mandatory except for carrierServiceId and shipmentServiceId (only one is required based on carrier id selected)
   - carrierId (case sensitive): ["fedex", "ups"] 
   - carrierServiceId is mandatory for fedex (case sensitive): ["fedexAIR", "fedexGroud"]
@@ -129,21 +143,22 @@ The API has two methods:
  - Business validation error response (Custom messages based on user locale ["es","en"])  
  
       {  
-        "message": "'length' measurement unit should be cm",  
-        "status": 400  
+            "message": "'length' measurement unit should be cm",  
+            "status": 400  
       }
   
-     -  "message": Response proper message
-     -  "status": Http status value (400 for failure)
+    -  "message": Response proper message
+    -  "status": Http status value (400 for failure)
      
  - Mandatory fields error response   
+     
      {  
-        "message": "{shipmentPackage.length=must not be null, shipmentPackage.weight=must not be null}",          
-        "status": 400  
+            "message": "{shipmentPackage.length=must not be null, shipmentPackage.weight=must not be null}",          
+            "status": 400  
      }
 
-     -  "message": Response proper message
-     -  "status": Http status value (400 for failure)
+    -  "message": Response proper message
+    -  "status": Http status value (400 for failure)
     
     
   # Generated shipment order
