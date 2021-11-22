@@ -129,7 +129,7 @@ The API has two methods:
  - Business validation error response (Custom messages based on user locale ["es","en"])  
  
       {
-        "message": "'length' measurement unit should be cm",
+        "message": "'length' measurement unit should be cm",  
         "status": 400
       }
   
@@ -138,7 +138,7 @@ The API has two methods:
      
  - Mandatory fields error response   
      {
-        "message": "{shipmentPackage.length=must not be null, shipmentPackage.weight=must not be null}",
+        "message": "{shipmentPackage.length=must not be null, shipmentPackage.weight=must not be null}",          
         "status": 400
      }
 
