@@ -65,7 +65,7 @@ The API has two methods:
         "carrier": {
           "carrierId": "fedex",
           "carrierServiceId": "fedexAIR",
-          "shipmentServiceId": "UPS2DAY" *****
+          "shipmentServiceId": "UPS2DAY" *
         }
     }
 
@@ -128,18 +128,18 @@ The API has two methods:
  
  - Business validation error response (Custom messages based on user locale ["es","en"])  
  
-      {
+      {  
         "message": "'length' measurement unit should be cm",  
-        "status": 400
+        "status": 400  
       }
   
      -  "message": Response proper message
      -  "status": Http status value (400 for failure)
      
  - Mandatory fields error response   
-     {
+     {  
         "message": "{shipmentPackage.length=must not be null, shipmentPackage.weight=must not be null}",          
-        "status": 400
+        "status": 400  
      }
 
      -  "message": Response proper message
