@@ -144,4 +144,8 @@ The API has two methods:
 
      -  "message": Response proper message
      -  "status": Http status value (400 for failure)
-     
+    
+    
+  # Generated shipment order
+  - In case of successful request, a shipment order will created as an xml file in the orders folder on the root project directory. 
+  - The generated file name will be in the following format {carrierId}_shipment_order_{orderId}.xml
