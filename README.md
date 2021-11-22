@@ -43,7 +43,7 @@ The API has two methods:
   
 **createShipment** 
   - Desc: responsible for placing the shipment order and rendering a suitable status messages
-  - URL: **{domain}/ztar-shipping/create-shipment ** 
+  - URL: **{domain}/ztar-shipping/create-shipment** 
   - HTTP Method: POST
   - Request Type: JSON
   - Response Type: JSON
